@@ -1,0 +1,256 @@
+# Thanx Rewards Backend - Ruby on Rails API
+
+# Database
+*.sqlite3
+*.sqlite3-journal
+*.sqlite3-shm
+*.sqlite3-wal
+
+# Logs
+log/*
+*.log
+rails.log
+development.log
+test.log
+production.log
+
+# Temporary files
+tmp/*
+tmp/**/*
+!tmp/.keep
+!tmp/cache/.keep
+!tmp/pids/.keep
+!tmp/storage/.keep
+
+# Storage uploads
+storage/*
+!storage/.keep
+
+# Precompiled assets
+public/assets/
+public/packs/
+public/packs-test/
+
+# Yarn
+yarn-error.log
+yarn.lock
+
+# Node modules (if using any JS tooling)
+node_modules/
+
+# Environment configuration
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Rails credentials
+config/credentials.yml.enc
+config/master.key
+
+# Bootsnap cache
+tmp/bootsnap*
+
+# Bundle configuration
+.bundle/
+vendor/bundle/
+
+# RubyMine
+.idea/
+
+# VS Code
+.vscode/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# TextMate
+*.tmproj
+*.tmproject
+tmtags
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Coverage reports
+coverage/
+coverage.data
+.simplecov
+
+# Test artifacts
+test/tmp/
+test/version_tmp/
+spec/tmp/
+
+# RSpec
+.rspec_status
+
+# Capybara
+capybara-*.html
+
+# Spring
+.spring/
+
+# Byebug
+.byebug_history
+
+# RDoc
+doc/
+.yardoc/
+
+# Gems
+*.gem
+.gems/
+
+# Rbenv
+.rbenv-gemsets
+
+# Ruby version managers
+.ruby-version
+.ruby-gemset
+
+# Pow
+.pow
+
+# Vagrant
+.vagrant/
+
+# Docker
+.dockerignore
+Dockerfile.dev
+
+# Redis
+dump.rdb
+
+# ElasticSearch
+elasticsearch-*
+
+# Solr
+solr/
+
+# Backup files
+*.bak
+*.backup
+
+# Sass
+.sass-cache/
+
+# Capistrano
+config/deploy.rb
+config/deploy/
+
+# Puma
+puma.sock
+
+# Unicorn
+unicorn.sock
+
+# Sidekiq
+sidekiq.pid
+
+# Whenever
+config/schedule.rb
+
+# Carrierwave
+public/uploads/
+
+# Paperclip
+public/system/
+
+# Active Storage
+storage/
+
+# Sprockets
+.sprockets-manifest-*
+
+# Webpacker
+public/packs/
+public/packs-test/
+node_modules/
+yarn-error.log
+
+# Ignore uploaded files in development
+storage/
+
+# Ignore pidfiles
+tmp/pids/
+
+# Ignore caches
+tmp/cache/
+
+# Ignore sockets
+tmp/sockets/
+
+# Ignore restart.txt
+tmp/restart.txt
+
+# Ignore vendored cache
+vendor/cache/
+
+# Ignore installed gems
+vendor/gems/
+
+# Ignore local configuration
+config/database.yml
+config/secrets.yml
+
+# Ignore application configuration
+config/application.yml
+
+# Ignore Figaro configuration
+config/application.yml
+
+# Ignore secrets
+config/secrets.yml
+
+# Ignore initializers that might contain secrets
+config/initializers/devise.rb
+config/initializers/omniauth.rb
+
+# Ignore uploaded files
+public/uploads/
+
+# Ignore precompiled assets
+public/assets/
+
+# Ignore packaged gems
+vendor/ruby/
+
+# Ignore local gemfile
+Gemfile.local
+Gemfile.lock.local
+
+# Ignore database backups
+*.sql
+*.dump
+
+# Ignore rails configuration
+config/boot.rb.backup
+config/environment.rb.backup
+config/routes.rb.backup
+
+# Ignore bullet gem logs
+bullet.log
