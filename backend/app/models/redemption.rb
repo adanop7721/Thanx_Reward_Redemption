@@ -2,10 +2,10 @@ class Redemption < ApplicationRecord
   belongs_to :user
   belongs_to :reward
   
-  validates :redeemed_at, presence: true
+  # validates :redeemed_at, presence: true
   
-  # Set redeemed_at to current time before saving
-  before_save :set_redeemed_at, if: :new_record?
+  # Set redeemed_at to current time before creating
+  before_create :set_redeemed_at
   
   # Deduct points from user after redemption
   after_create :deduct_points_from_user

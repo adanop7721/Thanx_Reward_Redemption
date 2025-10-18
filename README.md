@@ -12,142 +12,156 @@ A full-stack web application for managing reward points redemption, built with R
 
 ## 🛠️ Tech Stack
 
-### Frontend
-- **React** (v19.1.0) with TypeScript
-- **Vite** for fast development and building
-- **Tailwind CSS** for styling
-- **Modern ES6+ features**
+**Frontend:** React 19.1.0 + TypeScript, Vite, Tailwind CSS  
+**Backend:** Ruby on Rails 7.1.5 API, SQLite3 Database
 
-### Backend
-- **Ruby on Rails** (v7.1.5) API-only mode
-- **SQLite3** database
-- **RESTful API** architecture
-- **Professional routing and controllers**
 
-## 📁 Project Structure
 
-```
-Thanx_Reward_Redemption/
-├── frontend/           # React + Vite + TypeScript + Tailwind
-│   ├── src/
-│   ├── public/
-│   ├── package.json
-│   └── vite.config.ts
-├── backend/            # Ruby on Rails API
-│   ├── app/
-│   ├── config/
-│   ├── db/
-│   ├── Gemfile
-│   └── ...
-└── README.md
-```
-
-## 🏃‍♂️ Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js (v16 or higher)
-- Ruby (v3.0 or higher)
-- Rails (v7.1 or higher)
 
-### Installation
+Make sure you have the following installed:
+- **Node.js** (v18 or higher) - [Download here](https://nodejs.org/)
+- **Ruby** (v3.0 or higher) - [Download here](https://www.ruby-lang.org/)
+- **Bundler** gem: `gem install bundler`
 
-1. **Clone the repository**:
-   ```bash
-   git clone <repository-url>
-   cd Thanx_Reward_Redemption
-   ```
+### 📥 Installation
 
-2. **Setup Backend**:
-   ```bash
-   cd backend
-   bundle install
-   rails db:create db:migrate db:seed
-   rails server -p 3001
-   ```
+1. **Clone the repository:**
+```bash
+git clone https://github.com/adanop7721/Thanx_Reward_Redemption.git
+cd Thanx_Reward_Redemption
+```
 
-3. **Setup Frontend**:
-   ```bash
-   cd frontend
-   npm install
-   npm run dev
-   ```
+2. **Setup Backend (Rails API):**
+```bash
+cd backend
 
-4. **Access the Application**:
-   - Frontend: http://localhost:5173
-   - Backend API: http://localhost:3001
+# Install dependencies
+bundle install
 
-## 🔧 Development
+# Setup database
+rails db:create
+rails db:migrate
+rails db:seed
 
-### Backend API Endpoints
+# Verify setup
+rails db:version
+```
 
-- `GET /api/users/:id/points` - Get user's current points balance
-- `GET /api/rewards` - Get list of available rewards
-- `POST /api/redemptions` - Redeem a reward
-- `GET /api/users/:id/redemptions` - Get user's redemption history
+3. **Setup Frontend (React):**
+```bash
+cd ../frontend
 
-### Frontend Development
+# Install dependencies
+npm install
 
-Start the development server:
+# Create environment file
+echo "VITE_API_BASE_URL=http://localhost:3001" > .env
+```
+
+### 🏃‍♂️ Running the Application
+
+**Method 1: Using two terminals (Recommended)**
+
+**Terminal 1 - Backend:**
+```bash
+cd backend
+rails server -p 3001
+```
+✅ Backend API will be available at `http://localhost:3001`
+
+**Terminal 2 - Frontend:**
 ```bash
 cd frontend
 npm run dev
 ```
+✅ Frontend app will be available at `http://localhost:5173`
 
-### Database Schema
-
-The application uses the following main models:
-- **User**: Stores user information and points balance
-- **Reward**: Available rewards with cost and details
-- **Redemption**: History of user redemptions
-
-## 🧪 Testing
-
-Run backend tests:
+**Method 2: Background processes**
 ```bash
-cd backend
-rails test
+# Start backend in background
+cd backend && rails server -p 3001 &
+
+# Start frontend
+cd frontend && npm run dev
+```
+## 📡 API Documentation
+
+### Authentication Endpoints
+
+| Method | Endpoint | Description | Body |
+|--------|----------|-------------|------|
+| `POST` | `/api/users/signup` | Register new user | `{user: {email, password, password_confirmation}}` |
+| `POST` | `/api/auth/login` | User login | `{email, password}` |
+| `POST` | `/api/auth/logout` | User logout | - |
+| `GET` | `/api/users/me` | Get current user | - |
+
+### Rewards & Redemptions
+
+| Method | Endpoint | Description | Body |
+|--------|----------|-------------|------|
+| `GET` | `/api/rewards` | List all rewards | - |
+| `POST` | `/api/redemptions` | Redeem a reward | `{reward_id}` |
+| `GET` | `/api/redemptions` | Get redemption history | - |
+
+
+## 🏗 Project Structure
+
+```
+Thanx_Reward_Redemption/
+├── backend/                 # Rails API
+│   ├── app/
+│   │   ├── controllers/     # API controllers
+│   │   ├── models/          # User, Reward, Redemption models
+│   │   └── serializers/     # JSON response formatting
+│   ├── db/                  # Database migrations & seeds
+│   └── config/              # Rails configuration
+│
+├── frontend/                # React App
+│   ├── src/
+│   │   ├── components/      # Reusable UI components
+│   │   │   ├── ui/
+│   │   │   │   ├── feedback/    # Alert, ErrorMessage, etc.
+│   │   │   │   ├── forms/       # Form components
+│   │   │   │   ├── layout/      # Layout components
+│   │   │   │   ├── loading/     # Loading states
+│   │   │   │   └── specialized/ # Domain components
+│   │   ├── pages/           # Main pages (Login, Dashboard, etc.)
+│   │   ├── hooks/           # Custom React hooks
+│   │   ├── services/        # Business logic
+│   │   ├── contexts/        # React contexts (Auth)
+│   │   ├── lib/             # API client
+│   │   └── utils/           # Helper functions
+│   └── public/              # Static assets
+│
+└── README.md               # This file
 ```
 
-Run frontend tests:
-```bash
-cd frontend
-npm test
-```
+## 🎯 Key Features Explained
 
-## 🚀 Deployment
+### 💡 Points System
+- New users start with **1000 points**
+- Points are deducted when redeeming rewards
+- Real-time balance updates across the app
 
-### Backend
-Deploy to your preferred platform (Heroku, AWS, etc.)
+### 🔒 Security Features
+- Password hashing with bcrypt
+- Secure token-based authentication
+- Protected API endpoints
+- Input validation on both frontend and backend
 
-### Frontend
-Build for production:
-```bash
-cd frontend
-npm run build
-```
+### 📱 Responsive Design
+- Mobile-first approach
+- Works seamlessly on desktop, tablet, and mobile
+- Touch-friendly interfaces
 
-## 📝 API Documentation
+## 🚀 Future Improvements
 
-### Authentication
-Currently, the API uses a simple user ID system. In production, implement proper authentication.
-
-### Error Handling
-All API endpoints return appropriate HTTP status codes and error messages.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes with descriptive messages
-4. Push to the branch
-5. Create a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 🙏 Acknowledgments
-
-- Built for Thanx take-home challenge
-- Uses modern web development best practices
-- Follows RESTful API design principles
+- **Enhanced Security** - JWT tokens, password reset, 2FA, OAuth integration
+- **Performance Optimization** - Pagination, infinite scrolling, API caching
+- **Advanced Features** - Push notifications, reward categories, user profiles
+- **Production Ready** - PostgreSQL database, Docker deployment, monitoring
+- **Mobile Experience** - Progressive Web App, offline support, dark mode
+- **Quality Assurance** - Comprehensive testing, CI/CD pipeline, code coverage

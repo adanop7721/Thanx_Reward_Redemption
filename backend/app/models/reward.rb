@@ -6,6 +6,7 @@ class Reward < ApplicationRecord
   validates :description, presence: true
   validates :points_cost, presence: true, numericality: { greater_than: 0 }
   validates :available, inclusion: { in: [true, false] }
+  validates :category, presence: true
   
   scope :available, -> { where(available: true) }
 end

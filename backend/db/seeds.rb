@@ -18,12 +18,12 @@ end
 
 # Create sample rewards
 rewards = [
-  { name: 'Coffee Voucher', description: 'Get a free coffee at any participating cafe', points_cost: 100, available: true },
-  { name: 'Movie Ticket', description: 'Enjoy a movie at your local cinema', points_cost: 500, available: true },
-  { name: 'Restaurant Gift Card', description: '$25 gift card for popular restaurants', points_cost: 750, available: true },
-  { name: 'Spa Day Package', description: 'Relax with a full spa day experience', points_cost: 1200, available: true },
-  { name: 'Tech Gadget', description: 'Latest wireless earbuds', points_cost: 2000, available: true },
-  { name: 'Travel Voucher', description: '$100 towards your next trip', points_cost: 3000, available: false }
+  { name: 'Coffee Voucher', description: 'Get a free coffee at any participating cafe', points_cost: 100, available: true, category: 'Food & Drink' },
+  { name: 'Movie Ticket', description: 'Enjoy a movie at your local cinema', points_cost: 500, available: true, category: 'Entertainment' },
+  { name: 'Restaurant Gift Card', description: '$25 gift card for popular restaurants', points_cost: 750, available: true, category: 'Food & Drink' },
+  { name: 'Spa Day Package', description: 'Relax with a full spa day experience', points_cost: 1200, available: true, category: 'Wellness' },
+  { name: 'Tech Gadget', description: 'Latest wireless earbuds', points_cost: 2000, available: true, category: 'Electronics' },
+  { name: 'Travel Voucher', description: '$100 towards your next trip', points_cost: 3000, available: false, category: 'Travel' }
 ]
 
 rewards.each do |reward_attrs|
@@ -31,6 +31,7 @@ rewards.each do |reward_attrs|
     reward.description = reward_attrs[:description]
     reward.points_cost = reward_attrs[:points_cost]
     reward.available = reward_attrs[:available]
+    reward.category = reward_attrs[:category]
   end
 end
 
